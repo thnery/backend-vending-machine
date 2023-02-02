@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Product < ApplicationRecord
-  validates :amount_available, presensce: true
+  validates :amount_available, presence: true
   validates :cost, presence: true
   validates :product_name, presence: true
   validates :seller_id, presence: true

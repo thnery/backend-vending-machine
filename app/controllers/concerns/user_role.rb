@@ -8,5 +8,4 @@ module UserRole
   def seller?
     @current_user.seller?
   end
-
 end
