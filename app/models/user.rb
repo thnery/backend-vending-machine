@@ -25,11 +25,8 @@ class User < ApplicationRecord
     amount = amount.to_i
 
     raise DepositError, 'negative amount not allowed' if amount.negative?
-    raise DepositError, 'amount not allowed, please use multiples of 5' unless (amount % 5).zero?
+    raise DepositError, 'amount not allowed, please use 5, 10, 20, 50 or 100' unless valid_amount?(amount)
     raise DepositError, 'maximum deposit should be 100' if amount > 100
-
-    puts deposit
-    puts amount
 
     update_attribute(:deposit, deposit + amount)
   end
@@ -44,5 +41,9 @@ class User < ApplicationRecord
     return if ROLES.include?(role)
 
     errors.add(:role, 'must be "buyer" or "seller"')
+  end
+
+  def valid_amount?(amount)
+    !%i[5 10 20 50 100].include?(amount)
   end
 end

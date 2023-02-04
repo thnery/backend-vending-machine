@@ -2,7 +2,7 @@
 
 class UsersController < ApplicationController
   skip_before_action :authenticate_request, only: [:create]
-  before_action :check_role, only: [:deposit, :reset]
+  before_action :check_role, only: %i[deposit reset]
 
   def create
     @user = User.new(user_params)
