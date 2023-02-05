@@ -41,7 +41,7 @@ RSpec.describe PurchasesController, type: :controller do
     describe 'POST #buy' do
       let(:deposit) { buyer_without_balance.deposit }
 
-      it 'returns a success response' do
+      it 'returns a validation error' do
         post :buy, params: { product_id: bread.id, amount_of_products: 4 }
         expect(response.status).to be(422)
       end
@@ -49,6 +49,19 @@ RSpec.describe PurchasesController, type: :controller do
   end
 
   context 'when there are not enough products' do
+    let(:buyer_with_balance) { create(:buyer_with_balance) }
+    let(:jwt_token) { JwtHelper.encode({ username: buyer_with_balance.username }, Rails.application.secrets.secret_key_base) }
+    let(:cheese) { create(:cheese, seller_id: seller.id) }
 
+    before(:each) do
+      request.headers['Authorization'] = jwt_token
+    end
+
+    describe 'POST #buy' do
+      it 'returns a validation error' do
+        post :buy, params: { product_id: cheese.id, amount_of_products: 4 }
+        expect(response.status).to be(422)
+      end
+    end
   end
 end

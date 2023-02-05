@@ -1,0 +1,49 @@
+# .rubocop.yml
+
+AllCops:
+  Exclude:
+    - 'spec/**/*.rb'
+
+# Set a maximum line length of 80 characters
+Metrics/LineLength:
+  Max: 120
+  Enabled: true
+
+# Require methods to have a descriptive docstring
+Style/Documentation:
+  Enabled: true
+
+# Require or disallow the use of the line continuation character when
+# breaking up a long line into multiple lines.
+Style/LineContinuation:
+  EnforcedStyle: lf
+  Enabled: true
+
+# Require or disallow the use of the `and` and `or` keywords in
+# place of the `&&` and `||` operators respectively.
+Style/AndOr:
+  EnforcedStyle: logical_operators
+  Enabled: true
+
+# Require or disallow the use of the `%` string literal delimiter
+# instead of string interpolation or other string concatenation methods.
+Style/PercentLiteralDelimiter:
+  EnforcedStyle: percent
+  Enabled: true
+
+# Require braces around control structures, like `if` and `while`.
+Style/BlockDelimiters:
+  EnforcedStyle: context_dependent
+  Enabled: true
+
+# Require `else` to be on the same line as the closing brace in an
+# `if` block.
+Style/IfUnlessModifier:
+  EnforcedStyle: same_line
+  Enabled: true
+
+# Require one leading blank line before the first line of code in
+# a file.
+Layout/LeadingBlankLines:
+  Count: 1
+  Enabled: true

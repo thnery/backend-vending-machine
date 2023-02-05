@@ -6,4 +6,10 @@ FactoryBot.define do
     cost { 25 }
     amount_available { 10 }
   end
+
+  factory(:cheese, class: Product) do
+    product_name { 'cheese' }
+    cost { 10 }
+    amount_available { 2 }
+  end
 end
