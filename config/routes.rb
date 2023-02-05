@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   post 'reset', to: 'users#reset'
   post 'buy', to: 'purchases#buy'
 
-  resources :users, only: %i[index create update delete]
-  resources :products, only: %i[index create update delete]
+  resources :users, only: %i[index create update destroy]
+  resources :products, only: %i[index create update destroy]
 end

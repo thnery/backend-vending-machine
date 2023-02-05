@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
   end
 
   def update
-    if @product.update(update_params)
+    if @product.update(product_params)
       render json: { product: @product }
     else
       render json: { errors: @product.errors.full_messages }, status: :unprocessable_entity
@@ -49,7 +49,7 @@ class ProductsController < ApplicationController
   end
 
   def check_permission
-    return if seller? && product.seller_id.eq?(@current_user.id)
+    return if seller? && @product.seller_id.eql?(@current_user.id)
 
     render json: { error: 'opperation not permited' }, status: :forbidden
   end
