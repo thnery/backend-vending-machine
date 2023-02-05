@@ -61,4 +61,8 @@ class UsersController < ApplicationController
 
     render json: { error: 'operation not permited' }, status: :forbidden
   end
+
+  def validate_user_delection
+    
+  end
 end

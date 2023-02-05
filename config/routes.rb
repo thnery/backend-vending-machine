@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   post 'deposit', to: 'users#deposit'
   post 'reset', to: 'users#reset'
   post 'buy', to: 'purchases#buy'
+  delete 'users', to: 'users#destroy'
 
-  resources :users, only: %i[index create update destroy]
+  resources :users, only: %i[index create update]
   resources :products, only: %i[index create update destroy]
 end
