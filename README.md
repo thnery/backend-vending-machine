@@ -1,24 +1,26 @@
-# README
+# README - Backend Vending Machine
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Running application can be found at: https://radiant-stream-56900.herokuapp.com/api-docs/index.html
+The application uses JWT for Authentication. The Postman colletion can be found at the root of the project.
 
-Things you may want to cover:
+## Requirements
 
-* Ruby version
+* Ruby 3.1.2
+* Rails 7+
+* Postgres 14
 
-* System dependencies
+## Running Locally
 
-* Configuration
+Run `bundle exec rails server -p 3000`
 
-* Database creation
+In case you need to up the database, run `docker compose up -d`
 
-* Database initialization
+## Running Tests
 
-* How to run the test suite
+Run `bundle exec rspec`
 
-* Services (job queues, cache servers, search engines, etc.)
+Specs were writen for the endpoints bellow:
 
-* Deployment instructions
-
-* ...
+* `/deposit`
+* `/buy`
+* CRUD of Products
